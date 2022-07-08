@@ -1,6 +1,5 @@
 import { gql } from '@apollo/client';
 
-//TODO add pageCount and publishedDate to savedBooks
 export const GET_ME = gql`
   {
     me {
@@ -14,8 +13,6 @@ export const GET_ME = gql`
         description
         title
         link
-        pageCount
-        publishedDate
       }
     }
   }
