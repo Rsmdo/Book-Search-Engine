@@ -3,7 +3,6 @@ const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
-    // get user by id
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
@@ -12,9 +11,7 @@ const resolvers = {
       }
     },
   },
-//   mutations
   Mutation: {
-    //   logiin amd signtoken implementation
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -32,7 +29,6 @@ const resolvers = {
 
       return { token, user };
     },
-    //dsave and remove book aftre authg and login 
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
